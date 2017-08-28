@@ -18,7 +18,7 @@ class PostAd(models.Model):
     #upload_to='uploads/',
     # models.FileField( default = '/uploads/LuncClinical1.csv')
     file1 = models.FileField(upload_to='uploads/', default = '/uploads/LuncClinical.csv')
-    file2 = models.FileField(upload_to='uploads/', default = '/uploads/geneAnalysis.csv')
+    file2 = models.FileField(upload_to='uploads/', default = '/uploads/15_gene_file.xlsx_tab1.csv')
     #_list1 = None
     #self.X, self.Y, self.X_train, self.X_test, self.y_train, self.y_test, self.geneIDList, self.DescList = None, None, None, None, None, None, None, None
     
