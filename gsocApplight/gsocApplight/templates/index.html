@@ -1,0 +1,78 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>DAP Graph Plotter</title>
+        <link href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.5.min.css" rel="stylesheet" type="text/css">
+        <link href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.5.min.css" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="http://www.askprateek.com/style.css">
+            
+        <script src="jquery.js"></script>
+        <script>
+            $(function(){
+                $("#includedContent").load("heysample.html");
+                });
+        </script>
+    </head>
+    <body>
+      <nav>
+        <div class="nav-wrapper" style= "background:#FFC107">
+          <a href="/" class="brand-logo center">Graph Plotter</a>
+          
+          </div>
+      </nav>
+      <div class="container">
+        <div class="row">
+
+          <div class="col s12 m6">
+            <form method="post" action="/index/" >
+           
+            <div class="row">
+                <div class="col s12">
+                    <label for="category">Category</label>
+                    <select name="category" id= "category">
+                        <option value="svmg">SVM Gaussian</option>
+                        <option value="svml">SVM Linear</option>
+                        <option value="ann">ANN</option>
+                        <option value="rfc">RFC</option>
+                    </select>
+                        </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <label for="locations">Locations</label>
+                    <select name="locations" id= "locations">
+                        <option value="uni">univariate</option>
+                        <option value="pca">pca</option>
+                      
+                    </select>
+                </div>
+            </div>
+            
+            <div class="row">
+              <div class="col s12">
+                <button class="button">Draw Graph</button>
+              </div>
+            </div>
+
+          </form>
+          </div>
+
+
+          <div class="col s12 m6 center-align">
+            {{ div | safe }}
+          </div>
+          <div id="includedContent"></div>
+          
+          
+          
+        </div>
+      </div>
+        <script src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.5.min.js"></script>
+        <script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.5.min.js"></script>
+        {{ script | safe }}
+        <div id="includedContent"></div>
+    </body>
+</html>

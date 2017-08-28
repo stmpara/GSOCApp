@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% comment %}
+
+This is the display for the 'Post Ad' form.
+
+URL: postad/
+Model: PostAd
+ModelForm: PostAdForm
+View: PostAdPage [FormView]
+View Return: HttpResponse : message - "Sweeeeeeeet."
+
+* = preset when user is logged in.
+
+{% endcomment %}
+
+{% block content %}
+<form action="/postad/" method="post" enctype="multipart/form-data">{% csrf_token %}
+    <!-- *name -->
+<!--
+    {{  form.non_field_errors }}
+    <div class="fieldWrapper">
+        {{ form.name.errors }}
+        <label for="id_name">Name</label>
+        {{ form.name }}
+    </div>
+//-->
+    
+    
+    
+    <!-- file1 -->
+    <div class="fieldWrapper">
+        {{ form.description.errors }}
+        <label for="id_description">File1</label>
+        {{ form.file1 }}
+    </div>
+    <!-- file2 -->
+    <div class="fieldWrapper">
+        {{ form.expire.errors }}
+        <label for="id_expire">File2</label>
+        {{ form.file2 }}
+    </div>
+    <form action="{% url 'index' %}">
+        <button type="submit">
+            <i class="fa fa-thumb-tack"></i> Post
+        </button>
+    </form>
+</form>
+{% endblock %}
